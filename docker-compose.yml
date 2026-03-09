@@ -2,12 +2,17 @@ services:
   db:
     image: postgres:15
     container_name: sisonke_db
+<<<<<<< HEAD
     volumes:
       - postgres_data:/var/lib/postgresql/data/
+=======
+    restart: always
+>>>>>>> 501cb387b4794505257e70749612e9635592f492
     environment:
       POSTGRES_DB: sisonke_db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+<<<<<<< HEAD
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
@@ -66,3 +71,12 @@ volumes:
 networks:
   sisonke_network:
     driver: bridge
+=======
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+>>>>>>> 501cb387b4794505257e70749612e9635592f492
